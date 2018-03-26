@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { Article } from './article.model'; // this is a plain class, not an Angular component
 
 @Component({
@@ -8,14 +8,9 @@ import { Article } from './article.model'; // this is a plain class, not an Angu
 })
 export class ArticleComponent implements OnInit {
 	@HostBinding('attr.class') cssClass = 'row';
-	article: Article;
+	@Input() article: Article;
 
-  constructor() {
-  	this.article = new Article(
-  		'Angular',
-  		'http://angular.io',
-  		10);
-  }
+  constructor() { }
 
   // Why 2 vote(), one in component, one in model?
   // Each does something different. vote() in component
